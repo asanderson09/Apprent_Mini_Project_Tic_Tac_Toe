@@ -7,17 +7,6 @@ public class PlayBoard {
     public StringBuilder board = new StringBuilder();
     private static Map<Integer, Integer> locationMap = new HashMap<>();
 
-    static {locationMap = Map.of(11,14,
-            12,18,
-            13,22,
-            21, 33,
-            22,37,
-            23,41,
-            31,54,
-            32,58,
-            33,62);
-
-    }
 
 
     public StringBuilder buildBoard() {
@@ -36,18 +25,33 @@ public class PlayBoard {
         StringBuilder newBoard = board;
         //testing puting x at top left
         //a + b have to convert into the character space
-
-        newBoard.setCharAt(14, 'X');
+        int locationValue = locationMap.get(a*10 + b);
+        newBoard.setCharAt(locationValue, 'X');
 
         return newBoard;
     }
+
+
+
+    public StringBuilder getBoard() {
+        return board;
+    }
+
 
     @Override
     public String toString() {
         return board + "";
     }
 
-    public StringBuilder getBoard() {
-        return board;
+    static {locationMap = Map.of(
+            11,14,
+            12,18,
+            13,22,
+            21,38,
+            22,42,
+            23,46,
+            31,62,
+            32,66,
+            33,70);
     }
 }
