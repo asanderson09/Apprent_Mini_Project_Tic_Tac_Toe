@@ -1,35 +1,22 @@
 package com.TicTacToe.Board;
 
+import java.util.Arrays;
+
 public class PlayBoard {
-    public StringBuilder board = new StringBuilder();
-    public StringBuilder buildBoard() {
-        board.append("-- Board --\n\n");
-        board.append("   |   |   \n");
-        board.append("-----------\n");
-        board.append("   |   |   \n");
-        board.append("-----------\n");
-        board.append("   |   |   \n\n");
-        board.append("End-of-Board\n");
+    private String[] board = new String[9];
 
-        return board;
+
+    public void clearBoard(){
+        Arrays.fill(board, " ");
     }
 
-    public StringBuilder placeXPiece(int a, int b) {
-        StringBuilder newBoard = board;
-        //testing puting x at top left
-        //a + b have to convert into the character space
-
-        newBoard.setCharAt(14, 'X');
-
-        return newBoard;
-    }
-
-    @Override
-    public String toString() {
-        return board + "";
-    }
-
-    public StringBuilder getBoard() {
-        return board;
+    public void displayBoard() {
+        System.out.println("--- Board ---\n");
+        System.out.println(" " + board[0] + " | " + board[1] + " | " + board[2] + " ");
+        System.out.println("-----------");
+        System.out.println(" " + board[3] + " | " + board[4] + " | " + board[5] + " ");
+        System.out.println("-----------");
+        System.out.println(" " + board[6] + " | " + board[7] + " | " + board[8] + " \n");
+        System.out.println("End-Of-Board");
     }
 }
