@@ -1,8 +1,8 @@
-package com.TicTacToe.Board;
+package com.TicTacToe.Players;
 
 import com.TicTacToe.Players.BotPlayer;
 
-public class BoardTest {
+public class BotPlayerTest {
     public static void main(String[] args) {
         com.TicTacToe.Board.PlayBoard board1 = new com.TicTacToe.Board.PlayBoard();
         board1.buildBoard();
@@ -12,6 +12,11 @@ public class BoardTest {
         board1.placeXPiece(9);
         System.out.println(board1);
 
+        BotPlayer bot1 = new BotPlayer();
+        bot1.easyAI();
+        System.out.println(board1);
+        board1.buildBoard();
+        System.out.println(board1);
         //Ask player, which remaining number you would like to place your piece: console read <int a>
         //you would take the argument from the player read console: and put it in board.placePiece(<int a>)
     }
