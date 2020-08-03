@@ -38,6 +38,20 @@ public class PlayBoard {
         return board;
     }
 
+    public static StringBuilder placeOPiece(int a) {
+        //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
+        //testing puting x at top left
+        //a + b have to convert into the character space
+        int locationValue = locationMap.get(a);
+        board.setCharAt(locationValue, 'O'); // playerPieceChoice for "X"
+
+        // boardState[a][b] = State.X;
+        // checkWinX();
+
+        //should check winner for every move?
+        return board;
+    }
+
 //    public boolean checkWinX(){
 //        int xSum = 0;
 //        for (int i = 0; i < 3; i++) {
