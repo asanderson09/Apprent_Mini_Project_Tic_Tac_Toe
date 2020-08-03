@@ -1,8 +1,6 @@
-package com.TicTacToe.Board;
-
 public class BoardTest {
     public static void main(String[] args) {
-        com.TicTacToe.Board.PlayBoard board1 = new com.TicTacToe.Board.PlayBoard();
+        PlayBoard board1 = new PlayBoard();
         board1.buildBoard();
         System.out.println(board1);
         board1.placeXPiece(1);
