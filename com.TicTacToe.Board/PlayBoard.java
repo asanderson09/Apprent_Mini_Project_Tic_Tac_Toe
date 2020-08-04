@@ -2,15 +2,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlayBoard {
-    public StringBuilder board = new StringBuilder();
-    private static Map<Integer, Integer> locationMap = new HashMap<>();
+    public static StringBuilder board = new StringBuilder();
+    public static Map<Integer, Integer> locationMap = new HashMap<>();
 
 //    enum State{Blank, X, O}
 //    State[][] boardState = new State[3][3];
 
 
 
-    public StringBuilder buildBoard() {
+    public static StringBuilder buildBoard() {
         board.append("-- Board --\n\n");
         board.append(" 1 | 2 | 3 \n");
         board.append("-----------\n");
@@ -22,7 +22,7 @@ public class PlayBoard {
         return board;
     }
 
-    public StringBuilder placeXPiece(int a) {
+    public static StringBuilder placeXPiece(int a) {
         //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
         //testing puting x at top left
         //a + b have to convert into the character space
@@ -31,6 +31,20 @@ public class PlayBoard {
 
        // boardState[a][b] = State.X;
        // checkWinX();
+
+        //should check winner for every move?
+        return board;
+    }
+
+    public static StringBuilder placeOPiece(int a) {
+        //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
+        //testing puting x at top left
+        //a + b have to convert into the character space
+        int locationValue = locationMap.get(a);
+        board.setCharAt(locationValue, 'O'); // playerPieceChoice for "X"
+
+        // boardState[a][b] = State.X;
+        // checkWinX();
 
         //should check winner for every move?
         return board;
