@@ -12,28 +12,28 @@ public class PlayBoard {
 
     public StringBuilder buildBoard() {
         board.append("-- Board --\n\n");
-        board.append("   |   |   \n");
+        board.append(" 1 | 2 | 3 \n");
         board.append("-----------\n");
-        board.append("   |   |   \n");
+        board.append(" 4 | 5 | 6 \n");
         board.append("-----------\n");
-        board.append("   |   |   \n\n");
+        board.append(" 7 | 8 | 9 \n\n");
         board.append("End-of-Board\n");
 
         return board;
     }
 
-    public StringBuilder placeXPiece(int a, int b) {
-        StringBuilder newBoard = board;
+    public StringBuilder placeXPiece(int a) {
+        //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
         //testing puting x at top left
         //a + b have to convert into the character space
-        int locationValue = locationMap.get(a*10 + b);
-        newBoard.setCharAt(locationValue, 'X'); // playerPieceChoice for "X"
+        int locationValue = locationMap.get(a);
+        board.setCharAt(locationValue, 'X'); // playerPieceChoice for "X"
 
        // boardState[a][b] = State.X;
        // checkWinX();
 
         //should check winner for every move?
-        return newBoard;
+        return board;
     }
 
 //    public boolean checkWinX(){
@@ -59,14 +59,14 @@ public class PlayBoard {
     }
 
     static {locationMap = Map.of(
-            11,14,
-            12,18,
-            13,22,
-            21,38,
-            22,42,
-            23,46,
-            31,62,
-            32,66,
-            33,70);
+            1,14,
+            2,18,
+            3,22,
+            4,38,
+            5,42,
+            6,46,
+            7,62,
+            8,66,
+            9,70);
     }
 }
