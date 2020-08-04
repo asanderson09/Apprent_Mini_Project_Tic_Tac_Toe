@@ -1,11 +1,15 @@
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import java.util.Map;
 
 public class PlayBoard {
     public static StringBuilder board = new StringBuilder();
+
     private static Map<Integer, Integer> locationMap;
+
 
     static ArrayList<Integer> playerPos = new ArrayList<>(); // ArrayList for the player positions for checking win/loss
     static ArrayList<Integer> botPos = new ArrayList<>(); // ArrayList for the bot positions for checking win/loss
@@ -13,6 +17,7 @@ public class PlayBoard {
 
 //    enum State{Blank, X, O}
 //    State[][] boardState = new State[3][3];
+
 
     public StringBuilder buildBoard()
         {
@@ -23,6 +28,7 @@ public class PlayBoard {
             board.append("-----------\n");
             board.append(" 7 | 8 | 9 \n\n");
             board.append("End-of-Board\n");
+
 
             return board;
         }
@@ -38,6 +44,15 @@ public class PlayBoard {
         //should check winner for every move?
         return board;
     }
+
+  
+  
+    public static StringBuilder placeOPiece(int a) {
+        //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
+        //testing puting x at top left
+        //a + b have to convert into the character space
+        int locationValue = locationMap.get(a);
+        board.setCharAt(locationValue, 'O'); // playerPieceChoice for "X"
 
     private static boolean checkWin()
     {
@@ -83,6 +98,19 @@ public class PlayBoard {
             }
 
         return true;
+
+
+        
+        // checkWinX();
+
+        //should check winner for every move?
+        return board;
+    }
+
+
+    public StringBuilder getBoard() {
+        return board;
+
     }
 
     public StringBuilder getBoard()
