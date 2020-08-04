@@ -87,21 +87,11 @@ public class BotPlayer {
                 int botMatch = matchCounter(possibleWins,botPos); //counting the number of matches between bot positions, and win condition
                 int humMatch = matchCounter(possibleWins,playerPos); //same, but for humans
                 if (botMatch >= 2) { //if there are 2 matches in an AVAILABLE win condition, do the rest of to see if bot can take it
-                    List<Integer> differenceBot = new ArrayList<>(possibleWins);
-                    differenceBot.removeAll(botPos); //removes all other numbers from the win condition, remaining number is the space needed to win
-                    if (possibleMoves.contains(differenceBot.get(0))) { //check if the move is still available to be taken
-                        takeTurn(differenceBot.get(0)); //takes the turn, since it's open and there is only 1 number left in the win condition
-                        System.out.println("winning move");
-                        return; //breaks out of the whole turn since the bot placed a piece
-                    }
+                    winConditionMove(possibleWins, botPos);
+                    return;
                 } else if (humMatch >= 2) { //if the bot isn't able to win in the turn, check if the human player might be able to win
-                    List<Integer> difference = new ArrayList<>(possibleWins);
-                    difference.removeAll(playerPos);//removes the other two values from the winning condition (so the remaining number is the one that completes the win)
-                    if (possibleMoves.contains(difference.get(0))) { //check if the blocking move if possible
-                        takeTurn(difference.get(0)); //takes the legitimate move to prevent player from winning
-                        System.out.println("blocking move");
-                        return;
-                    }
+                    winConditionMove(possibleWins, playerPos);
+                    return;
                 }
             }
             randomMove(possibleMoves); //if there are no win conditions to met or block, take a possible move
@@ -118,6 +108,15 @@ public class BotPlayer {
             }
         }
         return matches;
+    }
+
+    private static void winConditionMove(List<Integer> possibleWins, List<Integer> positions) { //takes winCondition list, and human/bot positions
+        List<Integer> possibleMoves = possibleMovesList();
+        List<Integer> difference = new ArrayList<>(possibleWins); //create new list of the 3 numbers for a win condition
+        difference.removeAll(positions); //removes all other numbers from the win condition, remaining number is the space needed to win
+        if (possibleMoves.contains(difference.get(0))) { //check if the move is still available to be taken
+            takeTurn(difference.get(0));
+        }
     }
 
 
