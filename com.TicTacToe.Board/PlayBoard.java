@@ -29,19 +29,17 @@ public class PlayBoard {
 
     public static StringBuilder placeXPiece(int a) {
         //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
-        //testing puting x at top left
-        //a + b have to convert into the character space
+
         int locationValue = locationMap.get(a);
         board.setCharAt(locationValue, 'X'); // playerPieceChoice for "X"
 
-       // boardState[a][b] = State.X;
        // checkWinX();
 
         //should check winner for every move?
         return board;
     }
 
-    private static String checkWin()
+    private static boolean checkWin()
     {
         // Stores winning configurations in individual variables..
         // asList: This method also provides a convenient way to create a fixed-size list initialized to contain several elements
@@ -69,19 +67,22 @@ public class PlayBoard {
             {
                 if(playerPos.containsAll(possibleWins))
                     {
-                        return "Player Wins";
+                        System.out.println("Player Wins");
+                        return true;
                     }
                 else if (botPos.containsAll(possibleWins))
                     {
-                        return "Bot Wins";
+                        System.out.println("Bot Wins");
+                        return true;
                     }
             }
         if(playerPos.size() + botPos.size() == 9)
             {
-
+                System.out.println("Draw!!!");
+                return true;
             }
 
-        return "";
+        return true;
     }
 
     public StringBuilder getBoard()
