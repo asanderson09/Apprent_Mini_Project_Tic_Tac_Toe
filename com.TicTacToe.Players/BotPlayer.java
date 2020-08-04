@@ -1,26 +1,20 @@
 package com.TicTacToe.Players;
 
 import com.TicTacToe.Board.PlayBoard;
-import com.TicTacToe.Players.Player;
-
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class BotPlayer {
     //private final String piece = GameFrame.getPiece; // opposite of other piece
     private final String difficulty = "Easy"; // read difficulty from console
-    static List<Integer> preferredMoves = new ArrayList<>();
-    static {
-        preferredMoves.add(1);
-        preferredMoves.add(3);
-        preferredMoves.add(7);
-        preferredMoves.add(9);
-    }
+    static List<Integer> preferredMoves = new ArrayList<>(); //taking the 4 corners as perferred moves
+    static List<Integer> block19 = new ArrayList<Integer>(Arrays.asList(1, 9)); //opposite corners for countering tictactoe strategy
+    static List<Integer> block37 = new ArrayList<Integer>(Arrays.asList(3, 7));
 
     //--------------------------------
-    static ArrayList<Integer> playerPos = new ArrayList<>(); // ArrayList for the player positions for checking win/loss
-    static ArrayList<Integer> botPos = new ArrayList<>(); // ArrayList for the bot positions for checking win/loss
-    static List<Integer> topRow = new ArrayList<Integer>(Arrays.asList(1, 2, 3));
+    static List<Integer> playerPos = new ArrayList<>(); // ArrayList for the player positions for checking win/loss
+    static List<Integer> botPos = new ArrayList<>(); // ArrayList for the bot positions for checking win/loss
+
+    static List<Integer> topRow = new ArrayList<Integer>(Arrays.asList(1, 2, 3)); //the winning conditions
     static List<Integer> middleRow = new ArrayList<Integer>(Arrays.asList(4, 5, 6));
     static List<Integer> bottomRow = new ArrayList<Integer>(Arrays.asList(7, 8, 9));
     static List<Integer> leftColumn = new ArrayList<Integer>(Arrays.asList(1, 4, 7));
@@ -29,10 +23,12 @@ public class BotPlayer {
     static List<Integer> diagonalOne = new ArrayList<Integer>(Arrays.asList(1, 5, 9));
     static List<Integer> diagonalSeven = new ArrayList<Integer>(Arrays.asList(7, 5, 3));
 
+
     //Uses ArrayList to store a Collection of all winning configurations in one Map, for an easy way to iterate
     static List<List> winningCombinations = new ArrayList<>();
 
     static {
+        preferredMoves.addAll(Arrays.asList(1, 3, 7, 9));
         winningCombinations.add(topRow);
         winningCombinations.add(middleRow);
         winningCombinations.add(bottomRow);
@@ -44,8 +40,24 @@ public class BotPlayer {
     }
 //--------------------------------
 
+    public void initBot() {
+        playerPos.clear();
+        botPos.clear();
+        preferredMoves.clear();
+        preferredMoves.addAll(Arrays.asList(1, 3, 7, 9));
+        winningCombinations.clear();
+        winningCombinations.add(topRow);
+        winningCombinations.add(middleRow);
+        winningCombinations.add(bottomRow);
+        winningCombinations.add(leftColumn);
+        winningCombinations.add(middleColumn);
+        winningCombinations.add(rightColumn);
+        winningCombinations.add(diagonalOne);
+        winningCombinations.add(diagonalSeven);
+    }
 
-    public static void difficultyAITurn(String difficulty) throws IllegalDifficultyException {
+
+    public static void difficultyAITurn(String difficulty) throws IllegalDifficultyException { //would call this from run game to take AI turn
         switch (difficulty) {
             case "Easy":
                 easyAI();
@@ -56,69 +68,89 @@ public class BotPlayer {
             default:
                 throw new IllegalDifficultyException();
         }
-
     }
 
-    public static void easyAI() {  //randomly places a piece in a space that still has a number (not filled with "X" or "O"
-        int a; //initialize int value of the move the bot WILL take
-        List<Integer> possibleMoves = possibleMovesList();
-        Random randomMove = new Random(); //create new random object to determine move
-        a = possibleMoves.get(randomMove.nextInt(possibleMoves.size())); //sets value of move to a random value of the List of random moves
-        takeTurn(a); //bot takes the turn!
+    public static void easyAI() {  //randomly places a piece in a space that still has a number (not filled with "X" or "O")
+        List<Integer> possibleMoves = possibleMovesList(); //generates a list of possible moves from the board, method below
+        randomMove(possibleMoves); //bot takes the turn randomly from possible moves!
     }
 
     public static void hardAI() {
-        int a;
         List<Integer> possibleMoves = possibleMovesList();
-        Random randomMove = new Random();
-        if (possibleMoves.size() == 8) {
-            if (!possibleMoves.contains(1))
-                takeTurn(9);
-            else if (!possibleMoves.contains(3))
-                takeTurn(7);
-            else if (!possibleMoves.contains(7))
-                takeTurn(3);
-            else if (!possibleMoves.contains(9))
-                takeTurn(1);
-            else
-                takeTurn(preferredMoves.get(randomMove.nextInt(preferredMoves.size())));
-            return; //breaks out of method if it takes the turn
-        } else { //concurrentModification danger here! ...
-            for (List possibleWins : winningCombinations) {
-                if (possibleWins.containsAll(playerPos)) {
-                    List<Integer> difference = possibleWins;
-                    System.out.println(difference + "x");
+        List<List> winningComboCopy = new ArrayList<>(winningCombinations); //creates a copy of the winning combinations list
+        if (possibleMoves.size() == 8) {  //first bot move                  // of list to prevent concurrent modification error
+            firstMove();                                                    // (we delete winning combinations as they become unavailable)
+        } else if (possibleMoves.size() == 6 && (playerPos.containsAll(block19) || playerPos.containsAll(block37))) {
+            randomTurnBetweenFour(); //second bot move, to prevent always winning strategy of first moving piece
+        } else { //all other moves
+            for (List possibleWins : winningComboCopy) { //checkes every remaining win condition
+                int botMatch = matchCounter(possibleWins,botPos); //counting the number of matches between bot positions, and win condition
+                int humMatch = matchCounter(possibleWins,playerPos); //same, but for humans
+                if (botMatch >= 2) { //if there are 2 matches in an AVAILABLE win condition, do the rest of to see if bot can take it
+                    List<Integer> differenceBot = new ArrayList<>(possibleWins);
+                    differenceBot.removeAll(botPos); //removes all other numbers from the win condition, remaining number is the space needed to win
+                    if (possibleMoves.contains(differenceBot.get(0))) { //check if the move is still available to be taken
+                        takeTurn(differenceBot.get(0)); //takes the turn, since it's open and there is only 1 number left in the win condition
+                        System.out.println("winning move");
+                        return; //breaks out of the whole turn since the bot placed a piece
+                    }
+                } else if (humMatch >= 2) { //if the bot isn't able to win in the turn, check if the human player might be able to win
+                    List<Integer> difference = new ArrayList<>(possibleWins);
                     difference.removeAll(playerPos);//removes the other two values from the winning condition (so the remaining number is the one that completes the win)
-                    //winningCombinations.remove(possibleWins); //removes the possible win condition so you no longer have to worry about it.
-                    if (possibleMoves.containsAll(difference)) {
-                        takeTurn(difference.get(0)); //takes the first legitimate move possible to prevent player from winning
+                    if (possibleMoves.contains(difference.get(0))) { //check if the blocking move if possible
+                        takeTurn(difference.get(0)); //takes the legitimate move to prevent player from winning
+                        System.out.println("blocking move");
                         return;
-                        //breaks out of the whooooole thing AFTER a legitimate move
                     }
                 }
             }
-        }
-
-        if (botPos.size() == 1) { //if player is not going to win, and the AI only had one move, take another prefered move that hasn't been removed yet.
-            takeTurn(preferredMoves.get(randomMove.nextInt(preferredMoves.size())));
-            return; //bad form but exits if it does a move
-        } else { //if the player isn't going to win, and the bot has a possible win, take the winning move
-            for (List possibleWinsBot : winningCombinations) {
-                if (possibleWinsBot.containsAll(botPos)) {
-                    List<Integer> differenceBot = possibleWinsBot;
-                    botPos.removeAll(differenceBot);
-                    //winningCombinations.remove(possibleWinsBot); //not needed cuz you woooooooooooon
-                    takeTurn(differenceBot.get(0));
-                    return; //breaks out of the whole turn, cuz you won
-                }
-            }
-            takeTurn(possibleMoves.get(randomMove.nextInt(possibleMoves.size()))); //if NOOOOTHING else is true, then take a random move cuz it'll prob be a draw
-            return; //bad form but exits if it does a move
+            randomMove(possibleMoves); //if there are no win conditions to met or block, take a possible move
+            System.out.println("random move");
         }
     }
 
-    private static List<Integer> possibleMovesList() {
-        List<Integer> possibleMoves = new ArrayList<>(); //array of possible moves for the AI to choose
+    private static int matchCounter(List<Integer> combo, List<Integer> positions){ //counter for the matches between player
+        int matches = 0;                                                       //or bot positions, and the winning conditions
+        for (var comboPos : combo){
+            for (var positionsPos : positions) {
+                if (positionsPos.equals(comboPos))
+                    matches++;
+            }
+        }
+        return matches;
+    }
+
+
+    private static void firstMove() { //if the player picks a corner, take the middle to block. take a preferred move otherwise
+        List<Integer> possibleMoves = possibleMovesList();
+        if (!possibleMoves.contains(1) || !possibleMoves.contains(3) || !possibleMoves.contains(7) || !possibleMoves.contains(9))
+            takeTurn(5);
+        else
+            randomMove(preferredMoves);
+    }
+
+    private static void randomTurnBetweenFour() { //for the second move, picks randomly from 4 moves to block opposite corner strategy
+        Random random = new Random();
+        if (random.nextBoolean()) {
+            if (random.nextBoolean())
+                takeTurn(2);
+            else
+                takeTurn(4);
+        } else {
+            if (random.nextBoolean())
+                takeTurn(6);
+            else
+                takeTurn(8);
+        }
+    }
+
+    private static void randomMove(List<Integer> moveList) { //randomizer for the movelist fed into the method
+        Random randomMove = new Random(); //create new random object to determine move
+        takeTurn(moveList.get(randomMove.nextInt(moveList.size()))); //takes a turn from the random provided moveList
+    }
+
+    private static List<Integer> possibleMovesList() { //constructing the possible moves on the board
+        List<Integer> possibleMoves = new ArrayList<>(); //initialize array of possible moves for the AI to choose
         PlayBoard.locationMap.forEach((key, value) -> {  //iterates over every burrito of the map, if the
             Character positionValue = PlayBoard.board.charAt(value); //casts the char at each of 9 positions into modifiable Character type
             if (!positionValue.toString().equals("X") && !positionValue.toString().equals("O")) {  // cast Character to String and check if it equals any DIGITs (0-9)
@@ -129,9 +161,20 @@ public class BotPlayer {
     }
 
     public static StringBuilder takeTurn(int a) {
-        botPos.add(a);
-        preferredMoves.remove(Integer.valueOf(a));
-        return PlayBoard.placeOPiece(a); //needs to read from console
+        botPos.add(a); //logs the position that the bot placed the piece
+        preferredMoves.remove(Integer.valueOf(a)); //removes the position from list of preferred positions
+
+        List<Integer> allPositions = new ArrayList<>(); //construct new mutable list of all positions that have been taken
+        allPositions.addAll(playerPos);
+        allPositions.addAll(botPos);
+
+        List<List> winningComboCopy = new ArrayList<>(winningCombinations); //makes copy of winning combos to avoid concurrent mod error
+        for (var possibleWins : winningComboCopy) {
+            if (allPositions.containsAll(possibleWins)) //if possible win combo has been used up from positions, then ->
+                winningCombinations.remove(possibleWins);//removes the possible win condition so you no longer have to worry about it.
+        }
+
+        return PlayBoard.placeOPiece(a);
     }
 
 }
