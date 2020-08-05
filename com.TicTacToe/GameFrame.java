@@ -1,4 +1,4 @@
-
+package com.TicTacToe;
 
 import java.util.Scanner;
 
@@ -6,7 +6,10 @@ class GameFrame {
     //STATIC VARIABLES
     //static String playerName = "Player";  // default response [Player] if player declines to enter name
     //static String playerChoice;  //player must choose either [X || O]
-    static String defaultName = "Player";
+    String defaultName = "Player";
+
+    public String player = "Player";
+    /*public String*/
 
 
 
@@ -16,12 +19,13 @@ class GameFrame {
 
 
         //Give the user the option to choose any name
-        System.out.printf("\nIf you don't want to be called %s, please enter your name ", defaultName);
+        game1.gameIntro(game1,scan);
+        /*System.out.printf("\nIf you don't want to be called %s, please enter your name ", defaultName);
         game1.setPlayerName(scan.nextLine()); //nextLine allows a null response to default
-        System.out.println();
+        System.out.println();*/
 
 
-        System.out.printf("Welcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", playerName);
+        System.out.println("Welcome " + game1.defaultName + ", Respond exactly with No or N if you don't want to play TIC TAC TOE! ");
         String play = scan.next();
 
         //Ask for a new game start and exit if not interested
@@ -43,7 +47,8 @@ class GameFrame {
             System.out.printf("After reviewing the instructions, its time to choose your mark as X or O");
         } else {
             System.out.printf("Well since you need no instruction, lets get right down to choosing your mark X or O");
-        }   game1.setPlayerChoice(scan.next());
+        }
+        game1.setPlayerChoice(scan.next());
 
         //TODO GameStart()
         //TODO Ask the player if they wish to play again or quit
@@ -55,12 +60,12 @@ class GameFrame {
 
 
     //CTORS
-   public GameFrame() {
-       setPlayerName(defaultName);
+    public GameFrame() {
+        setPlayerName(defaultName);
     }
 
     public GameFrame(String playerName) {
-       setPlayerName(playerName);
+        setPlayerName(playerName);
     }
 
     public GameFrame(String playerName, String playerChoice) {
@@ -69,23 +74,26 @@ class GameFrame {
     }
 
     //ASSESSORS
-    public static String getDefaultName() {
+    public String getDefaultName() {
         return defaultName;
     }
 
-    public static void setDefaultName(String defaultName) {
-        GameFrame.defaultName = defaultName;
+    public void setDefaultName(String defaultName) {
+        this.defaultName = defaultName;
     }
 
     public String getPlayerName() {
         return playerName;
     }
 
-    public static void setPlayerName(String playerName) {
-        if (playerName.equals(""))
-            playerName = defaultName;
-        else
-            GameFrame.playerName = playerName;
+    public void setPlayerName(String name) {
+        if (!name.isBlank()) {
+            this.defaultName = name;
+        }
+        else {
+            System.out.println("this is whats executing w/ nothing");
+            this.defaultName = "Player";
+        }
     }
 
     public String getPlayerChoice() {
@@ -100,12 +108,24 @@ class GameFrame {
             isChoiceValid = (playerChoice.equalsIgnoreCase("x") || playerChoice.equalsIgnoreCase("O"));
             if (isChoiceValid) {
                 playerChoice = playerChoice.toUpperCase();
-                System.out.printf("%s chose to play as %s ",playerName, playerChoice);
+                System.out.printf("%s chose to play as %s ", playerName, playerChoice);
             }
         } while (!isChoiceValid);
     }
 
     //METHODS
+    private void gameIntro(GameFrame game1, Scanner scan) {
+        System.out.printf("\nIf you don't want to be called %s, please enter your name ", defaultName);
+        game1.setPlayerName(scan.nextLine()); //nextLine allows a null response to default
+        System.out.println("Your name is now " + this.defaultName);
+        System.out.println();
+        /*
+        System.out.printf("Welcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", playerName);
+        String play = scan.next();*/
+    }
+
+
+
     /*
     public void setPlayerChoice(String playerChoice) {
         // validate choice of X or O ignoring Case with player feedback
@@ -119,6 +139,7 @@ class GameFrame {
         } while (!isChoiceValid);
    }
         */
+
 
 }
 
