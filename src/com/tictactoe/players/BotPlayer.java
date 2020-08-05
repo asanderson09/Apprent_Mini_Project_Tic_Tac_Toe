@@ -66,29 +66,23 @@ public class BotPlayer {
 
     public static void getDifficulty() {
         Scanner scan = new Scanner(System.in);
+        String diff;
         boolean isValidDifficulty;
-        System.out.println("Please choose a valid difficulty: 'Easy' or 'Hard'.  \n");
-        String diff = scan.nextLine();
-
         do {
-            isValidDifficulty = (difficulty.equalsIgnoreCase("Easy") || difficulty.equalsIgnoreCase("Hard"));
-            if (isValidDifficulty) {
-                BotPlayer.difficulty = diff;
-                System.out.printf("\nThe AI has been set to difficulty:  %s \n\n", difficulty);
-            }
-            else {
-                System.out.println("Please choose a valid difficulty: 'Easy' or 'Hard'.  \n");
-                diff = scan.nextLine(); }
+            System.out.println("Please choose a valid AI player difficulty: 'Easy' or 'Hard'. ");
+            diff = scan.nextLine();
+            isValidDifficulty = (diff.equalsIgnoreCase("Easy") || diff.equalsIgnoreCase("Hard"));
         } while (!isValidDifficulty);
+        BotPlayer.difficulty = diff.toUpperCase();
     }
 
 
     public static void difficultyAITurn(String difficulty) throws IllegalDifficultyException { //would call this from run game to take AI turn
         switch (difficulty) {
-            case "Easy":
+            case "EASY":
                 easyAI();
                 break;
-            case "Hard":
+            case "HARD":
                 hardAI();
                 break;
             default:
