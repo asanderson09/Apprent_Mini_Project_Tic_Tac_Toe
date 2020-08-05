@@ -1,4 +1,4 @@
-package com.TicTacToe;
+
 
 import java.util.Scanner;
 
@@ -16,8 +16,9 @@ class GameFrame {
 
 
         //Give the user the option to choose any name
-        System.out.printf("If you don't want to be called %s, please enter your name ", defaultName);
+        System.out.printf("\nIf you don't want to be called %s, please enter your name ", defaultName);
         game1.setPlayerName(scan.nextLine()); //nextLine allows a null response to default
+        System.out.println();
 
 
         System.out.printf("Welcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", playerName);
@@ -25,7 +26,7 @@ class GameFrame {
 
         //Ask for a new game start and exit if not interested
         if (play.equalsIgnoreCase("n") || play.equalsIgnoreCase("no")) {
-            System.out.printf("No hard feelings %s. Enjoy!", playerName);
+            System.out.printf("\nNo hard feelings %s. Enjoy!\n", playerName);
             System.exit(0);
         } else {
             System.out.printf("\nWelcome to the next game! \n\n");
@@ -37,7 +38,7 @@ class GameFrame {
         if (gameIntro.equalsIgnoreCase("y") || gameIntro.equalsIgnoreCase("YES")) {
             System.out.printf("1. Tic Tac Toe is played on a 3 by 3 grid. \n\n");
             System.out.printf("2. The Player can choose mark X or O. The AI bot chooses the remaining mark based on player choice for the duration of the round. \n\n");
-            System.out.print("3.The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner. \n\n");
+            System.out.printf("3.The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner. \n\n");
             System.out.printf("4. If all 9 positions on the grid fill up, then the game ends in a draw. \n\n\n");
             System.out.printf("After reviewing the instructions, its time to choose your mark as X or O");
         } else {
@@ -80,11 +81,11 @@ class GameFrame {
         return playerName;
     }
 
-    public void setPlayerName(String playerName) {
+    public static void setPlayerName(String playerName) {
         if (playerName.equals(""))
             playerName = defaultName;
         else
-            playerName = playerName;
+            GameFrame.playerName = playerName;
     }
 
     public String getPlayerChoice() {
@@ -100,8 +101,7 @@ class GameFrame {
             if (isChoiceValid) {
                 playerChoice = playerChoice.toUpperCase();
                 System.out.printf("%s chose to play as %s ",playerName, playerChoice);
-            } else
-                playerChoice = "";
+            }
         } while (!isChoiceValid);
     }
 
