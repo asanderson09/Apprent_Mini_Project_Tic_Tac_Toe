@@ -18,8 +18,10 @@ class GameFrame {
         //Give the user the option to choose any name and scan it in
         game1.gameIntro(game1,scan);
 
-
-        System.out.printf("\nWelcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", game1.defaultName);
+        //do you want to exit (call this after the game ends so they can choose to exit or play a new game
+        //playAgain()
+        game1.playAgain(game1,scan);
+        /*System.out.printf("\nWelcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", game1.defaultName);
         String play = scan.next();
 
         //Ask for a new game start and exit if not interested
@@ -28,9 +30,14 @@ class GameFrame {
             System.exit(0);
         } else {
             System.out.printf("\nWelcome to the next game! \n\n");
-        }
+        }*/
+
+
         //Offer instructions and proceed to offer user to choose mark X or O
-        System.out.printf("%s, This is important! Respond exactly with Y or Yes if you need a quick Intro on how to TIC TAC TOE! ", game1.defaultName);
+        //instructions() (returns x or o for player choice)
+
+        game1.instructions(game1,scan);
+        /*System.out.printf("%s, This is important! Respond exactly with Y or Yes if you need a quick Intro on how to TIC TAC TOE! ", game1.defaultName);
         String gameIntro = scan.next();
 
         if (gameIntro.equalsIgnoreCase("y") || gameIntro.equalsIgnoreCase("YES")) {
@@ -42,7 +49,7 @@ class GameFrame {
         } else {
             System.out.printf("\nSince you need no instruction, lets get right down to choosing your mark X or O. ");
         }
-        game1.setPlayerChoice(scan.next());
+        game1.setPlayerChoice(scan.next());*/
 
         //TODO GameStart() passed to board AI
 
@@ -115,6 +122,33 @@ class GameFrame {
         game1.setPlayerName(scan.nextLine()); //nextLine allows a null response to default
     }
 
+    private void playAgain(GameFrame game1, Scanner scan) {
+        System.out.printf("\nWelcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", game1.defaultName);
+        String play = scan.nextLine();
+
+        if (play.equalsIgnoreCase("n") || play.equalsIgnoreCase("no")) {
+            System.out.printf("\nNo hard feelings %s. Enjoy!\n", game1.defaultName);
+            System.exit(0);
+        } else {
+            System.out.printf("\nWelcome to the next game! \n\n");
+        }
+    }
+
+    private void instructions(GameFrame game1, Scanner scan) {
+        System.out.printf("%s, This is important! Respond exactly with Y or Yes if you need a quick Intro on how to TIC TAC TOE! ", game1.defaultName);
+        String gameIntro = scan.nextLine();
+
+        if (gameIntro.equalsIgnoreCase("y") || gameIntro.equalsIgnoreCase("YES")) {
+            System.out.printf("1. Tic Tac Toe is played on a 3 by 3 grid. \n\n");
+            System.out.printf("2. The Player can choose mark X or O. The AI bot chooses the remaining mark based on player choice for the duration of the round. \n\n");
+            System.out.printf("3.The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner. \n\n");
+            System.out.printf("4. If all 9 positions on the grid fill up, then the game ends in a draw. \n\n\n");
+            System.out.printf("After reviewing the instructions, its time to choose your mark as X or O ");
+        } else {
+            System.out.printf("\nSince you need no instruction, lets get right down to choosing your mark X or O. ");
+        }
+        game1.setPlayerChoice(scan.nextLine());
+    }
 
 }
 
