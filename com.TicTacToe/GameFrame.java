@@ -1,100 +1,123 @@
-import javax.imageio.stream.ImageInputStream;
+import java.util.Scanner;
 
-import java.io.Console;
-
-public class GameFrame {
+class GameFrame {
     //STATIC VARIABLES
-    static String playerName = "Player";  // default response [Player] if player declines to enter name
-    static String playerChoice;  //player must choose either [X || O]
-    static boolean isChoiceValid;
+    //static String playerName = "Player";  // default response [Player] if player declines to enter name
+    //static String playerChoice;  //player must choose either [X || O]
+    static String defaultName = "Player";
 
-    //statics so no need to instantiate an object to gather user input
 
-    //INSTANCE FIELDS
-    //TODO Do we need to stretch create a GameFrame instance to code an [array or an enum] of 1 player vs 1 bot?
 
+    public static void main(String[] args) {//POSSIBLY TEMP MAIN FOR DEMO RUNS
+        GameFrame game1 = new GameFrame();
+        Scanner scan = new Scanner(System.in);
+
+
+        //Give the user the option to choose any name
+        System.out.printf("If you don't want to be called %s, please enter your name ", defaultName);
+        game1.setPlayerName(scan.nextLine()); //nextLine allows a null response to default
+
+
+        System.out.printf("Welcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! ", playerName);
+        String play = scan.next();
+
+        //Ask for a new game start and exit if not interested
+        if (play.equalsIgnoreCase("n") || play.equalsIgnoreCase("no")) {
+            System.out.printf("No hard feelings %s. Enjoy!", playerName);
+            System.exit(0);
+        } else {
+            System.out.printf("\nWelcome to the next game! \n\n");
+        }
+        //Offer instructions and proceed to offer user to choose the mark
+        System.out.printf("%s, This is important! Respond exactly with Y or Yes if need a quick Intro on how to TIC TAC TOE! ", playerName);
+        String gameIntro = scan.next();
+
+        if (gameIntro.equalsIgnoreCase("y") || gameIntro.equalsIgnoreCase("YES")) {
+            System.out.printf("1. Tic Tac Toe is played on a 3 by 3 grid. \n\n");
+            System.out.printf("2. The Player can choose mark X or O. The AI bot chooses the remaining mark based on player choice for the duration of the round. \n\n");
+            System.out.print("3.The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner. \n\n");
+            System.out.printf("4. If all 9 positions on the grid fill up, then the game ends in a draw. \n\n\n");
+            System.out.printf("After reviewing the instructions, its time to choose your mark as X or O");
+        } else {
+            System.out.printf("Well since you need no instruction, lets get right down to choosing your mark X or O");
+        }   game1.setPlayerChoice(scan.next());
+
+        //TODO GameStart()
+        //TODO Ask the player if they wish to play again or quit
+    }
+
+    //INSTANCE VARIABLES
+    private static String playerName;
+    private static String playerChoice;
 
 
     //CTORS
-    public GameFrame() {
-        //no-op
+   public GameFrame() {
+       setPlayerName(defaultName);
     }
 
-    public GameFrame(String playerName, String playerChoice ) {
-
+    public GameFrame(String playerName) {
+       setPlayerName(playerName);
     }
 
-    //ASSESSOR METHODS
+    public GameFrame(String playerName, String playerChoice) {
+        this();
+        setPlayerName(playerChoice);
+    }
 
-    public static String getPlayerName() {
+    //ASSESSORS
+    public static String getDefaultName() {
+        return defaultName;
+    }
+
+    public static void setDefaultName(String defaultName) {
+        GameFrame.defaultName = defaultName;
+    }
+
+    public String getPlayerName() {
         return playerName;
     }
 
-    public static void setPlayerName(String playerName) {
-        GameFrame.playerName = playerName;
+    public void setPlayerName(String playerName) {
+        if (playerName.equals(""))
+            playerName = defaultName;
+        else
+            playerName = playerName;
     }
 
-    public static String getPlayerChoice() {
+    public String getPlayerChoice() {
         return playerChoice;
     }
 
-    public static void setPlayerChoice(String playerChoice) {
+    public void setPlayerChoice(String playerChoice) { //FIXING LOGIC
+        // validate choice of X or O ignoring Case with player feedback
+        boolean isChoiceValid;
+        do {
+            System.out.println("Please choose X or O as your chosen game piece.  \n");
+            isChoiceValid = (playerChoice.equalsIgnoreCase("x") || playerChoice.equalsIgnoreCase("O"));
+            if (isChoiceValid) {
+                playerChoice = playerChoice.toUpperCase();
+                System.out.printf("%s chose to play as %s ",playerName, playerChoice);
+            } else
+                playerChoice = "";
+        } while (!isChoiceValid);
+    }
+
+    //METHODS
+    /*
+    public void setPlayerChoice(String playerChoice) {
         // validate choice of X or O ignoring Case with player feedback
         do {
             System.out.println("Please choose X or O as your chosen game piece.  \n");
             isChoiceValid = (playerChoice.equalsIgnoreCase("x") || playerChoice.equalsIgnoreCase("O"));
             if (isChoiceValid) {
-                GameFrame.playerChoice = playerChoice;
-                System.out.println("You chose to play as " + playerChoice.toUpperCase());
+                this.playerChoice = playerChoice;
+                System.out.printf("%s chose to play as %s ",playerName, playerChoice.toUpperCase());
             }
         } while (!isChoiceValid);
-
-    }
-    //METHODS
-
-    /*
-     *TODO QUICK MAIN DEMO TO ADD PLAYER RESPONSE TO PLAY, REPLAY, WHAT PIECE, AND MAYBE DIFFICULTY
-     * & INCLUDES INSTRUCT/TUTORIAL
-     *
-     */
-
-    public static void main(String[] args) {//POSSIBLY TEMP MAIN FOR DEMO RUNS
-        Console console = System.console();
-
-        Console console = new Console();
-
-        //TODO Ask Player name get response
-        playerName = console.readLine("If you mind being reffered to as Player, please enter your name ");
-
-        //TODO Ask Do you Want to play Tic Tac Toe?
-        console.readLine(playerName + "Respond Yes(Y) or No(N) if you want to play TIC TAC TOE!");
-
-
-        //TODO Do you Need Instructions
-
-        /*
-         *  1. Tic Tac Toe is played on a 3 by 3 grid.
-         *
-         *  2. The Player can choose mark X or O. The AI bot chooses the remaining mark based on player choice for the duration of the round.
-         *
-         *  3.The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner.
-         *
-         *  4. If all 9 positions on the grid fill up, then the game ends in a draw.
-         */
-
-
-
-
-
-
-        //console.readLine("Please choose X or O as your designation. \n");
-        //GameFrame.setPlayerChoice();
-
-
-        setPlayerChoice("o");
-       // System.out.println("Please choose X or O as your designation. ");
-
-        //TODO Ask the player if they wish to play again or quit
-    }
+   }
+        */
 
 }
+
+

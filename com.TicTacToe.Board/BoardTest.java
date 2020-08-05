@@ -17,3 +17,6 @@ public class BoardTest {
         //you would take the argument from the player read console: and put it in board.placePiece(<int a>)
     }
 }
+
+
+
