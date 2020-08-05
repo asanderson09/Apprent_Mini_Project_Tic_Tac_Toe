@@ -1,5 +1,7 @@
 package com.TicTacToe.Board;
 
+import com.TicTacToe.Players.BotPlayer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -76,27 +78,32 @@ public class PlayBoard {
         return board;
     }
 
-    private static boolean checkWin() {
+    public static boolean checkWin() {
         for (List possibleWins : winningCombinations) {
-            if (playerPos.containsAll(possibleWins)) {
+            if (BotPlayer.playerPos.containsAll(possibleWins)) {
                 System.out.println("Player Wins");
                 return true;
-            } else if (botPos.containsAll(possibleWins)) {
+            } else if (BotPlayer.botPos.containsAll(possibleWins)) {
                 System.out.println("Bot Wins");
                 return true;
             }
         }
-        if (playerPos.size() + botPos.size() == 9) {
+        if (BotPlayer.playerPos.size() + BotPlayer.botPos.size() == 9) {
             System.out.println("Draw!!!");
             return true;
         }
         return false;
     }
 
-    public StringBuilder getBoard() {
-        return board;
+    public static boolean checkMove(int a) {
+        List<Integer> possibleMoves = BotPlayer.possibleMovesList();
+        if (possibleMoves.contains(a))
+            return true;
+        else {
+            System.out.println("Illegal move, please choose a legal move from " + possibleMoves);
+            return false;
+        }
     }
-
 
     @Override
     public String toString() {

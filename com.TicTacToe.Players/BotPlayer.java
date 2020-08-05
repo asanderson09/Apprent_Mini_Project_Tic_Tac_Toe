@@ -11,8 +11,8 @@ public class BotPlayer {
     static List<Integer> block37 = new ArrayList<Integer>(Arrays.asList(3, 7));
 
     //--------------------------------
-    static List<Integer> playerPos = new ArrayList<>(); // ArrayList for the player positions for checking win/loss
-    static List<Integer> botPos = new ArrayList<>(); // ArrayList for the bot positions for checking win/loss
+    public static List<Integer> playerPos = new ArrayList<>(); // ArrayList for the player positions for checking win/loss
+    public static List<Integer> botPos = new ArrayList<>(); // ArrayList for the bot positions for checking win/loss
 
     static List<Integer> topRow = new ArrayList<Integer>(Arrays.asList(1, 2, 3)); //the winning conditions
     static List<Integer> middleRow = new ArrayList<Integer>(Arrays.asList(4, 5, 6));
@@ -145,10 +145,11 @@ public class BotPlayer {
 
     private static void randomMove(List<Integer> moveList) { //randomizer for the movelist fed into the method
         Random randomMove = new Random(); //create new random object to determine move
-        takeTurn(moveList.get(randomMove.nextInt(moveList.size()))); //takes a turn from the random provided moveList
+        if (moveList.size() > 0)
+            takeTurn(moveList.get(randomMove.nextInt(moveList.size()))); //takes a turn from the random provided moveList
     }
 
-    private static List<Integer> possibleMovesList() { //constructing the possible moves on the board
+    public static List<Integer> possibleMovesList() { //constructing the possible moves on the board
         List<Integer> possibleMoves = new ArrayList<>(); //initialize array of possible moves for the AI to choose
         PlayBoard.locationMap.forEach((key, value) -> {  //iterates over every burrito of the map, if the
             Character positionValue = PlayBoard.board.charAt(value); //casts the char at each of 9 positions into modifiable Character type
