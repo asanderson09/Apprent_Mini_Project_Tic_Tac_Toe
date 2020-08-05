@@ -1,3 +1,5 @@
+package com.TicTacToe;
+
 import java.util.Scanner;
 
 class GameFrame {
