@@ -1,4 +1,4 @@
-package com.TicTacToe.Players;
+package com.tictactoe.players;
 
 public class IllegalDifficultyException extends RuntimeException {
     public IllegalDifficultyException() {

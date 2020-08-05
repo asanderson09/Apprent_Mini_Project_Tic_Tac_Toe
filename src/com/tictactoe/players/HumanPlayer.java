@@ -1,15 +1,15 @@
-package com.TicTacToe.Players;
+package com.tictactoe.players;
 
-import com.TicTacToe.Board.PlayBoard;
+import com.tictactoe.board.PlayBoard;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HumanPlayer {
     //private final String piece = GameFrame.getPiece;
+    public static String piece = "X";
 
-
-    public StringBuilder takeTurn(int a) {
+    public void takeTurn(int a) {
         BotPlayer.playerPos.add(a); //logs player piece position
         BotPlayer.preferredMoves.remove(Integer.valueOf(a)); //removes the move from preferred moves, since it's taken
 
@@ -23,6 +23,9 @@ public class HumanPlayer {
                 BotPlayer.winningCombinations.remove(possibleWins);//removes the possible win condition so you no longer have to worry about it.
         }
 
-        return PlayBoard.placeXPiece(a) ; //needs to read from console
+        if (HumanPlayer.piece.equals("O"))
+            PlayBoard.placePiece(a , "O");
+        else
+            PlayBoard.placePiece(a, "X");
     }
 }
