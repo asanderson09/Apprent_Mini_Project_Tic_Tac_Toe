@@ -1,6 +1,6 @@
-package com.TicTacToe.Board;
+package com.tictactoe.board;
 
-import com.TicTacToe.Players.BotPlayer;
+import com.tictactoe.players.BotPlayer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -47,36 +47,22 @@ public class PlayBoard {
 //    State[][] boardState = new State[3][3];
 
     public StringBuilder buildBoard() {
-        board.append("-- Board --\n\n");
+        board.append("-- Board --\n");
         board.append(" 1 | 2 | 3 \n");
         board.append("-----------\n");
         board.append(" 4 | 5 | 6 \n");
         board.append("-----------\n");
-        board.append(" 7 | 8 | 9 \n\n");
+        board.append(" 7 | 8 | 9 \n");
         board.append("End-of-Board\n");
         return board;
     }
 
-    public static StringBuilder placeXPiece(int a) {
-        //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
-
+    public static void placePiece(int a, String piece) {
         int locationValue = locationMap.get(a);
-        board.setCharAt(locationValue, 'X'); // playerPieceChoice for "X"
-        // checkWinX();
-
-        //should check winner for every move?
-        return board;
+        board.setCharAt(locationValue, piece.charAt(0));
+        System.out.println(board);
     }
 
-
-    public static StringBuilder placeOPiece(int a) {
-        //StringBuilder newBoard = board; //getting the current state of the board, BEFORE you place new piece... and then returning the next state at the end
-        //testing puting x at top left
-        //a + b have to convert into the character space
-        int locationValue = locationMap.get(a);
-        board.setCharAt(locationValue, 'O'); // playerPieceChoice for "X"
-        return board;
-    }
 
     public static boolean checkWin() {
         for (List possibleWins : winningCombinations) {

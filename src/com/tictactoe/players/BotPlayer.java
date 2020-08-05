@@ -1,11 +1,12 @@
-package com.TicTacToe.Players;
+package com.tictactoe.players;
 
-import com.TicTacToe.Board.PlayBoard;
+import com.tictactoe.board.PlayBoard;
 import java.util.*;
 
 public class BotPlayer {
     //private final String piece = GameFrame.getPiece; // opposite of other piece
-    private final String difficulty = "Easy"; // read difficulty from console
+    public static String difficulty; // read difficulty from console
+    public static String piece = "O";
     static List<Integer> preferredMoves = new ArrayList<>(); //taking the 4 corners as perferred moves
     static List<Integer> block19 = new ArrayList<Integer>(Arrays.asList(1, 9)); //opposite corners for countering tictactoe strategy
     static List<Integer> block37 = new ArrayList<Integer>(Arrays.asList(3, 7));
@@ -54,6 +55,31 @@ public class BotPlayer {
         winningCombinations.add(rightColumn);
         winningCombinations.add(diagonalOne);
         winningCombinations.add(diagonalSeven);
+    }
+
+    //ctor
+    /*public BotPlayer(String difficulty, String piece){
+        this.difficulty = difficulty;
+        this.piece = piece;
+
+    }*/
+
+    public static void getDifficulty() {
+        Scanner scan = new Scanner(System.in);
+        boolean isValidDifficulty;
+        System.out.println("Please choose a valid difficulty: 'Easy' or 'Hard'.  \n");
+        String diff = scan.nextLine();
+
+        do {
+            isValidDifficulty = (difficulty.equalsIgnoreCase("Easy") || difficulty.equalsIgnoreCase("Hard"));
+            if (isValidDifficulty) {
+                BotPlayer.difficulty = diff;
+                System.out.printf("\nThe AI has been set to difficulty:  %s \n\n", difficulty);
+            }
+            else {
+                System.out.println("Please choose a valid difficulty: 'Easy' or 'Hard'.  \n");
+                diff = scan.nextLine(); }
+        } while (!isValidDifficulty);
     }
 
 
@@ -160,7 +186,7 @@ public class BotPlayer {
         return possibleMoves;
     }
 
-    public static StringBuilder takeTurn(int a) {
+    public static void takeTurn(int a) {
         botPos.add(a); //logs the position that the bot placed the piece
         preferredMoves.remove(Integer.valueOf(a)); //removes the position from list of preferred positions
 
@@ -173,8 +199,11 @@ public class BotPlayer {
             if (allPositions.containsAll(possibleWins)) //if possible win combo has been used up from positions, then ->
                 winningCombinations.remove(possibleWins);//removes the possible win condition so you no longer have to worry about it.
         }
-
-        return PlayBoard.placeOPiece(a);
+        System.out.println("The AI placed their piece: " + BotPlayer.piece + " at location " + a + ".");
+        if (BotPlayer.piece.equals("O"))
+            PlayBoard.placePiece(a , "O");
+        else
+            PlayBoard.placePiece(a, "X");
     }
 
 }
