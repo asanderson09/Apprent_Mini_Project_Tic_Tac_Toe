@@ -1,5 +1,6 @@
-package com.tictactoe;
+package com.tictataoe.client;
 
+import com.tictactoe.GameFrame;
 import com.tictactoe.board.PlayBoard;
 import com.tictactoe.players.BotPlayer;
 import com.tictactoe.players.HumanPlayer;
@@ -8,10 +9,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-public class GameFrameClient {
+public class Client {
     public static void main(String[] args) throws IOException {
         String banner = Files.readString(Path.of("data", "banner.txt"));
         System.out.println(banner);
+
         while (true) { //only way to exit game is by replying no to play a game
             PlayBoard board = new PlayBoard();  //initalizations
             BotPlayer bot = new BotPlayer();

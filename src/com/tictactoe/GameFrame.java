@@ -3,7 +3,7 @@ package com.tictactoe;
 import java.util.Scanner;
 
 
-class GameFrame {
+public class GameFrame {
     //STATIC VARIABLES
 
     //static String playerChoice;  //player must choose either [X || O]
