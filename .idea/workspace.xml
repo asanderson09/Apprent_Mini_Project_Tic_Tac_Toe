@@ -1,47 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="022a586d-3ef3-4bfe-a275-e361f2b5ed64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/board/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Board/PlayBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/board/PlayBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/GameFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/BotPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/BotPlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/IllegalDifficultyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/IllegalDifficultyException.java" afterDir="false" />
-    </list>
+    <list default="true" id="022a586d-3ef3-4bfe-a275-e361f2b5ed64" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1fhEPx5HqoK0GTgDoL3T6jLhKbz" />
@@ -55,15 +21,16 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="GameFrameClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.tictactoe.GameFrameClient" />
+    <configuration name="GameFrameTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.TicTacToe.GameFrameTest" />
       <module name="TicTacToe" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.tictactoe.*" />
+          <option name="PATTERN" value="com.TicTacToe.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -73,7 +40,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GameFrameClient" />
+        <item itemvalue="Application.GameFrameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -87,36 +54,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596661903389</updated>
+      <workItem from="1596662387379" duration="765000" />
     </task>
     <servers />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1637" height="386" key="GridCell.Tab.0.bottom" timestamp="1596667353387">
-      <screen x="0" y="0" width="1680" height="1010" />
-    </state>
-    <state width="1637" height="386" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353387" />
-    <state width="1637" height="386" key="GridCell.Tab.0.center" timestamp="1596667353386">
-      <screen x="0" y="0" width="1680" height="1010" />
-    </state>
-    <state width="1637" height="386" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1637" height="386" key="GridCell.Tab.0.left" timestamp="1596667353386">
-      <screen x="0" y="0" width="1680" height="1010" />
-    </state>
-    <state width="1637" height="386" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1637" height="386" key="GridCell.Tab.0.right" timestamp="1596667353386">
-      <screen x="0" y="0" width="1680" height="1010" />
-    </state>
-    <state width="1637" height="386" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
   </component>
 </project>
