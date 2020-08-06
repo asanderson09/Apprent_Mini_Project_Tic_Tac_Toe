@@ -1,4 +1,4 @@
-package com.tictataoe.client;
+package com.tictactoe.client;
 
 import com.tictactoe.GameFrame;
 import com.tictactoe.board.PlayBoard;
