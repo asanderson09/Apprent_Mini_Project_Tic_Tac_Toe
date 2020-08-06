@@ -5,8 +5,6 @@ import java.util.Scanner;
 
 class GameFrame {
     //STATIC VARIABLES
-
-    //static String playerChoice;  //player must choose either [X || O]
     String defaultName = "Player";
 
     //INSTANCE VARIABLES
@@ -29,7 +27,6 @@ class GameFrame {
     }
 
     //ASSESSORS
-
     public String getPlayerName() {
         return playerName;
     }
@@ -47,7 +44,7 @@ class GameFrame {
         return playerChoice;
     }
 
-    // validate choice of X or O ignoring Case with player feedback
+    // Validate choice of X or O ignoring Case with player feedback
     public void setPlayerChoice(String playerChoice) {
         boolean isValidPiece;
         Scanner scan = new Scanner(System.in);
@@ -65,15 +62,13 @@ class GameFrame {
     }
 
     //METHODS
-    //default response [Player] if player declines to enter name
-    //Give the user the option to choose any name and scan it in
+    //Default response [Player] if player declines to enter any other name
     private void gameIntro(GameFrame game1, Scanner scan) {
         System.out.printf("\nIf you don't want to be called %s, please enter your name. \n", defaultName);
         game1.setPlayerName(scan.nextLine()); //nextLine allows a null response to default
     }
 
-    //do you want to exit (call this after the game ends so they can choose to exit or play a new game
-    //playAgain()
+    //Do you want to exit (call this after the game ends so they can choose to exit or play a new game
     private void playAgain(GameFrame game1, Scanner scan) {
         System.out.printf("\nWelcome %s, Respond exactly with No or N if you don't want to play TIC TAC TOE! \n", game1.defaultName);
         String play = scan.nextLine();
@@ -86,7 +81,7 @@ class GameFrame {
         }
     }
 
-    //Offer instructions and proceed to offer user to choose mark X or O
+    //Offer instructions and then offer user to choose mark X or O
     private void instructions(GameFrame game1, Scanner scan) {
         System.out.printf("%s, This is important! Respond exactly with Y or Yes if you need a quick Intro on how to TIC TAC TOE! \n", game1.defaultName);
         String gameIntro = scan.nextLine();
@@ -103,6 +98,7 @@ class GameFrame {
         game1.setPlayerChoice(scan.nextLine());
     }
 
+    //PlayAgain utilized
     public void init(GameFrame frame, Scanner scan) {
         frame.gameIntro(frame, scan);
         frame.playAgain(frame, scan);
@@ -110,4 +106,3 @@ class GameFrame {
     }
 
 }
-

@@ -3,7 +3,7 @@ package com.tictactoe.board.test;
 
 import com.tictactoe.board.PlayBoard;
 
-public class BoardTest {
+public class PlayBoardTest {
     public static void main(String[] args) {
         PlayBoard board1 = new PlayBoard();
         board1.buildBoard();
