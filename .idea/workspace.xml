@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="022a586d-3ef3-4bfe-a275-e361f2b5ed64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/board/PlayBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/board/PlayBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/board/test/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/test/BotPlayerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,33 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BotPlayerTest">
+    <configuration name="BoardTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tictactoe.board.test.BoardTest" />
+      <module name="TicTacToe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tictactoe.board.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BotPlayerTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tictactoe.players.test.BotPlayerTest" />
+      <module name="TicTacToe" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.tictactoe.players.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GameFrameClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.tictactoe.GameFrameClient" />
       <module name="TicTacToe" />
@@ -68,6 +92,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BotPlayerTest" />
+        <item itemvalue="Application.BoardTest" />
         <item itemvalue="Application.GameFrameClient" />
       </list>
     </recent_temporary>
@@ -97,21 +123,21 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1637" height="244" key="GridCell.Tab.0.bottom" timestamp="1596728475650">
+    <state width="1637" height="244" key="GridCell.Tab.0.bottom" timestamp="1596728992126">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="244" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1596728475650" />
-    <state width="1637" height="244" key="GridCell.Tab.0.center" timestamp="1596728475649">
+    <state width="1637" height="244" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1596728992126" />
+    <state width="1637" height="244" key="GridCell.Tab.0.center" timestamp="1596728992126">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="244" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1596728475649" />
-    <state width="1637" height="244" key="GridCell.Tab.0.left" timestamp="1596728475649">
+    <state width="1637" height="244" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1596728992126" />
+    <state width="1637" height="244" key="GridCell.Tab.0.left" timestamp="1596728992126">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="244" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1596728475649" />
-    <state width="1637" height="244" key="GridCell.Tab.0.right" timestamp="1596728475650">
+    <state width="1637" height="244" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1596728992126" />
+    <state width="1637" height="244" key="GridCell.Tab.0.right" timestamp="1596728992126">
       <screen x="0" y="0" width="1680" height="1010" />
     </state>
-    <state width="1637" height="244" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1596728475650" />
+    <state width="1637" height="244" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1596728992126" />
   </component>
 </project>
