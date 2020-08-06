@@ -29,8 +29,9 @@ public class Client {
             }
             System.out.println(board); //shows board for human's first move
             while (!PlayBoard.checkWin()) { //while the game hasn't ended, alternate turns
-                System.out.println("Please choose a position to place your piece, your piece is: " + frame.getPlayerChoice() + ".");
-                hum.takeTurn(PlayBoard.checkMove(Integer.parseInt(scan.nextLine())));
+                System.out.println("Please choose a position NUMBER to place your piece, your piece is: " + frame.getPlayerChoice() + ".\n");
+                int move = PlayBoard.checkMove(scan.nextLine());
+                hum.takeTurn(move);
                 BotPlayer.difficultyAITurn(BotPlayer.difficulty);
             }
         }
