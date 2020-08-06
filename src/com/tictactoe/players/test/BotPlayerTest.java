@@ -1,4 +1,7 @@
-package com.tictactoe.players;
+package com.tictactoe.players.test;
+
+import com.tictactoe.players.BotPlayer;
+import com.tictactoe.players.HumanPlayer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +13,6 @@ public class BotPlayerTest {
         BotPlayer bot = new BotPlayer();
         HumanPlayer hum = new HumanPlayer();
         board1.buildBoard();
-        //Scanner in = new Scanner(System.in);
         BufferedReader reader =
                 new BufferedReader(new InputStreamReader(System.in));
 

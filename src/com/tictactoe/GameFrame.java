@@ -9,19 +9,6 @@ class GameFrame {
     //static String playerChoice;  //player must choose either [X || O]
     String defaultName = "Player";
 
-
-    /*public static void main(String[] args) {//POSSIBLY TEMP MAIN FOR DEMO RUNS
-        GameFrame game1 = new GameFrame();
-        Scanner scan = new Scanner(System.in);
-        game1.gameIntro(game1,scan);
-        game1.playAgain(game1,scan);
-        game1.instructions(game1,scan);
-
-        //TODO GameStart() passed to board AI
-
-        //TODO Ask the player if they wish to play again or quit Strecth goal
-    }*/
-
     //INSTANCE VARIABLES
     private static String playerName;
     private static String playerChoice;
@@ -71,7 +58,7 @@ class GameFrame {
                 System.out.printf("\n%s chose to represent as %s \n\n", defaultName, playerChoice);
             }
             else {
-                System.out.println("Please choose X or O as your chosen game piece.  ");
+                System.out.println("Please choose X or O as your chosen game piece.  \n");
                 playerChoice = scan.nextLine();
             }
         } while (!isValidPiece);
@@ -107,7 +94,7 @@ class GameFrame {
         if (gameIntro.equalsIgnoreCase("y") || gameIntro.equalsIgnoreCase("YES")) {
             System.out.printf("1. Tic Tac Toe is played on a 3 by 3 grid. \n\n");
             System.out.printf("2. The Player can choose mark X or O. The AI bot chooses the remaining mark based on player choice for the duration of the round. \n\n");
-            System.out.printf("3.The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner. \n\n");
+            System.out.printf("3. The first player or bot that gets 3 marks in a row up, down, across, or diagonally is the winner. \n\n");
             System.out.printf("4. If all 9 positions on the grid fill up, then the game ends in a draw. \n\n\n");
             System.out.printf("After reviewing the instructions, its time to choose your mark as X or O ");
         } else {
