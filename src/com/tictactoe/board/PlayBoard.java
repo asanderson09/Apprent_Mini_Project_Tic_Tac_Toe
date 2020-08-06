@@ -2,11 +2,7 @@ package com.tictactoe.board;
 
 import com.tictactoe.players.BotPlayer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import java.util.Map;
+import java.util.*;
 
 public class PlayBoard {
     public static StringBuilder board = new StringBuilder();
@@ -46,7 +42,8 @@ public class PlayBoard {
 //    enum State{Blank, X, O}
 //    State[][] boardState = new State[3][3];
 
-    public StringBuilder buildBoard() {
+    public void buildBoard() {
+        board.delete(0,board.length());
         board.append("-- Board --\n");
         board.append(" 1 | 2 | 3 \n");
         board.append("-----------\n");
@@ -54,7 +51,6 @@ public class PlayBoard {
         board.append("-----------\n");
         board.append(" 7 | 8 | 9 \n");
         board.append("End-of-Board\n");
-        return board;
     }
 
     public static void placePiece(int a, String piece) {
@@ -81,14 +77,15 @@ public class PlayBoard {
         return false;
     }
 
-    public static boolean checkMove(int a) {
+    public static int checkMove(int a) {
+        int b = a;
+        Scanner scan = new Scanner(System.in);
         List<Integer> possibleMoves = BotPlayer.possibleMovesList();
-        if (possibleMoves.contains(a))
-            return true;
-        else {
-            System.out.println("Illegal move, please choose a legal move from " + possibleMoves);
-            return false;
+        while (!possibleMoves.contains(b)) {
+            System.out.println("Illegal move, please choose a legal move from " + possibleMoves +". \n");
+            b = Integer.parseInt(scan.nextLine());
         }
+        return b;
     }
 
     @Override

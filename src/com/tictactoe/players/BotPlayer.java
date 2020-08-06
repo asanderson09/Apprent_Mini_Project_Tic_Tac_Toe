@@ -41,7 +41,7 @@ public class BotPlayer {
     }
 //--------------------------------
 
-    public void initBot() {
+    public void initBot() { //easy way for the main to reset all the fields that we modify
         playerPos.clear();
         botPos.clear();
         preferredMoves.clear();
@@ -55,6 +55,7 @@ public class BotPlayer {
         winningCombinations.add(rightColumn);
         winningCombinations.add(diagonalOne);
         winningCombinations.add(diagonalSeven);
+        getDifficulty();
     }
 
     //ctor
@@ -64,7 +65,7 @@ public class BotPlayer {
 
     }*/
 
-    public static void getDifficulty() {
+    public static void getDifficulty() { //sets static bot difficulty
         Scanner scan = new Scanner(System.in);
         String diff;
         boolean isValidDifficulty;
@@ -115,7 +116,6 @@ public class BotPlayer {
                 }
             }
             randomMove(possibleMoves); //if there are no win conditions to met or block, take a possible move
-            System.out.println("random move");
         }
     }
 
@@ -193,7 +193,9 @@ public class BotPlayer {
             if (allPositions.containsAll(possibleWins)) //if possible win combo has been used up from positions, then ->
                 winningCombinations.remove(possibleWins);//removes the possible win condition so you no longer have to worry about it.
         }
-        System.out.println("The AI placed their piece: " + BotPlayer.piece + " at location " + a + ".");
+        System.out.println("The AI placed their piece: " + BotPlayer.piece + " at location " + a + ". \n");
+
+        //depending on the bot's piece, place that piece in the position given
         if (BotPlayer.piece.equals("O"))
             PlayBoard.placePiece(a , "O");
         else
