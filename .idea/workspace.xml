@@ -20,16 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="022a586d-3ef3-4bfe-a275-e361f2b5ed64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/banner.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Board/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/board/BoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Board/PlayBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/board/PlayBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/GameFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/BotPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/BotPlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/BotPlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/HumanPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/HumanPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/TicTacToe/Players/IllegalDifficultyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/players/IllegalDifficultyException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,6 +83,9 @@
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -100,23 +96,36 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1637" height="386" key="GridCell.Tab.0.bottom" timestamp="1596667353387">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state x="499" y="346" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596729793807">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="499" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1097@0.23.1792.1097" timestamp="1596729793807" />
+    <state width="1736" height="280" key="GridCell.Tab.0.bottom" timestamp="1596730229437">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353387" />
-    <state width="1637" height="386" key="GridCell.Tab.0.center" timestamp="1596667353386">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1736" height="280" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229437" />
+    <state width="1736" height="280" key="GridCell.Tab.0.center" timestamp="1596730229437">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1637" height="386" key="GridCell.Tab.0.left" timestamp="1596667353386">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1736" height="280" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229437" />
+    <state width="1736" height="280" key="GridCell.Tab.0.left" timestamp="1596730229436">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1637" height="386" key="GridCell.Tab.0.right" timestamp="1596667353386">
-      <screen x="0" y="0" width="1680" height="1010" />
+    <state width="1736" height="280" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229436" />
+    <state width="1736" height="280" key="GridCell.Tab.0.right" timestamp="1596730229437">
+      <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
+    <state width="1736" height="280" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229437" />
+    <state x="592" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596729720046">
+      <screen x="0" y="23" width="1792" height="1097" />
+    </state>
+    <state x="592" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1792.1097@0.23.1792.1097" timestamp="1596729720046" />
   </component>
 </project>
