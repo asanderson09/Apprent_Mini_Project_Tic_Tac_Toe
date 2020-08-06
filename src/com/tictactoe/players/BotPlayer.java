@@ -78,7 +78,7 @@ public class BotPlayer {
     }
 
 
-    public static void difficultyAITurn(String difficulty) throws IllegalDifficultyException { //would call this from run game to take AI turn
+    public static void difficultyAITurn(String difficulty) { //would call this from run game to take AI turn
         switch (difficulty) {
             case "EASY":
                 easyAI();
@@ -86,8 +86,6 @@ public class BotPlayer {
             case "HARD":
                 hardAI();
                 break;
-            default:
-                throw new IllegalDifficultyException();
         }
     }
 

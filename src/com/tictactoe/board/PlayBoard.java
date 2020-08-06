@@ -77,15 +77,24 @@ public class PlayBoard {
         return false;
     }
 
-    public static int checkMove(int a) {
-        int b = a;
+    private static boolean tryParseInt(String num) { //java doesn't have tryParse, so we write it ourselves
+        try {
+            Integer.parseInt(num);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static int checkMove(String a) {
+        String b = a;
         Scanner scan = new Scanner(System.in);
         List<Integer> possibleMoves = BotPlayer.possibleMovesList();
-        while (!possibleMoves.contains(b)) {
+        while (b.isBlank() || !tryParseInt(b) || !possibleMoves.contains(Integer.valueOf(b))) { //using the forced check or, we can avoid parsing int from invalid string exception.
             System.out.println("Illegal move, please choose a legal move from " + possibleMoves +". \n");
-            b = Integer.parseInt(scan.nextLine());
+            b = scan.nextLine();
         }
-        return b;
+        return Integer.parseInt(b);
     }
 
     @Override
