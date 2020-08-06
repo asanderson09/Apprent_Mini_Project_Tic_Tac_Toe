@@ -20,9 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="022a586d-3ef3-4bfe-a275-e361f2b5ed64" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/banner.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/tictactoe/GameFrameClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/tictactoe/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,13 +45,15 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
-    <configuration name="GameFrameClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.tictactoe.GameFrameClient" />
+    <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.tictactoe.Client" />
       <module name="TicTacToe" />
       <extension name="coverage">
         <pattern>
@@ -103,26 +104,26 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="499" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1097@0.23.1792.1097" timestamp="1596729793807" />
-    <state width="1736" height="280" key="GridCell.Tab.0.bottom" timestamp="1596730229437">
+    <state width="1736" height="567" key="GridCell.Tab.0.bottom" timestamp="1596730462127">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.bottom/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353387" />
-    <state width="1736" height="280" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229437" />
-    <state width="1736" height="280" key="GridCell.Tab.0.center" timestamp="1596730229437">
+    <state width="1736" height="567" key="GridCell.Tab.0.bottom/0.23.1792.1097@0.23.1792.1097" timestamp="1596730462127" />
+    <state width="1736" height="567" key="GridCell.Tab.0.center" timestamp="1596730462126">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.center/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1736" height="280" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229437" />
-    <state width="1736" height="280" key="GridCell.Tab.0.left" timestamp="1596730229436">
+    <state width="1736" height="567" key="GridCell.Tab.0.center/0.23.1792.1097@0.23.1792.1097" timestamp="1596730462126" />
+    <state width="1736" height="567" key="GridCell.Tab.0.left" timestamp="1596730462126">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.left/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1736" height="280" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229436" />
-    <state width="1736" height="280" key="GridCell.Tab.0.right" timestamp="1596730229437">
+    <state width="1736" height="567" key="GridCell.Tab.0.left/0.23.1792.1097@0.23.1792.1097" timestamp="1596730462126" />
+    <state width="1736" height="567" key="GridCell.Tab.0.right" timestamp="1596730462127">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state width="1637" height="386" key="GridCell.Tab.0.right/0.0.1680.1010@0.0.1680.1010" timestamp="1596667353386" />
-    <state width="1736" height="280" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1596730229437" />
+    <state width="1736" height="567" key="GridCell.Tab.0.right/0.23.1792.1097@0.23.1792.1097" timestamp="1596730462127" />
     <state x="592" y="453" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1596729720046">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>

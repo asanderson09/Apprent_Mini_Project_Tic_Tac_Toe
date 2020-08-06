@@ -3,7 +3,7 @@ package com.tictactoe;
 import java.util.Scanner;
 
 
-class GameFrame {
+public class GameFrame {
     //STATIC VARIABLES
     String defaultName = "Player";
 
